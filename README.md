@@ -2,7 +2,7 @@
 
 Welcome to my personal portfolio website! This project showcases my skills, experience, and the projects I've built as a developer. It is hosted completely for free using GitHub Pages.
 
-🌐 **Live Demo:** [https://TheMughal.github.io](https://TheMughal.github.io)
+🌐 **Live Demo:** [https://Ahmed-Nadeem-Mughal.github.io](https://TheMughal.github.io)
 
 ---
 
