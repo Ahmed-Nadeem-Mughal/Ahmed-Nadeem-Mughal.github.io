@@ -380,7 +380,8 @@ footer {
 }
 
 .no-projects-card,
-.no-writings-card {
+.no-writings-card,
+.no-art-card {
   grid-column: 1 / -1;
   /* Spans across both grid columns */
   text-align: center;
@@ -398,7 +399,8 @@ footer {
 }
 
 .no-projects-card h5,
-.no-writings-card h5 {
+.no-writings-card h5,
+.no-art-card h5 {
   font-family: 'Playfair Display', serif;
   font-size: 1.1rem;
   letter-spacing: 0.05em;
@@ -432,6 +434,176 @@ footer {
   text-align: center;
   user-select: none;
   /* Prevents accidental selection highlighting */
+}
+
+
+
+
+
+
+/* Redefining how the featured container handles its internal structure */
+.art-piece.featured {
+  grid-column: span 3 !important;
+  /* Forces it to occupy the full gallery row span elegantly */
+  aspect-ratio: auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  /* Image takes slightly more space, text takes the rest */
+  background: var(--surface);
+  /* Keeps card background consistency */
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Fixes image sizing inside the split grid layout column boundary */
+.art-piece.featured .art-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Side Metadata Styling Container */
+.featured-side-metadata {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Centers text vertically next to your artwork */
+  padding: 3rem;
+  background: transparent;
+}
+
+/* Match the standard caption rules but ensure text color pops natively on the panel background */
+.featured-side-metadata .art-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  /* Bumps up the featured title size a bit for emphasis */
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.featured-side-metadata .art-details {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--art);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.featured-side-metadata .art-caption {
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* Mobile responsive fallback so it stacks cleanly on smaller phone screens */
+@media (max-width: 768px) {
+  .art-piece.featured {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-side-metadata {
+    padding: 2rem;
+  }
+}
+
+/* ==========================================================================
+   FEATURED ARTWORK SPLIT LAYOUT
+   ========================================================================== */
+
+/* Redefining how the featured container handles its internal structure */
+.art-piece.featured {
+  grid-column: span 3 !important;
+  /* Forces it to occupy the full gallery row span elegantly */
+  aspect-ratio: auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  /* Image takes slightly more space, text takes the rest */
+  background: var(--surface);
+  /* Keeps card background consistency */
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Fixes image sizing inside the split grid layout column boundary */
+.art-piece.featured .art-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Side Metadata Styling Container */
+.featured-side-metadata {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Centers text vertically next to your artwork */
+  padding: 3rem;
+  background: transparent;
+}
+
+/* Match the standard caption rules but ensure text color pops natively on the panel background */
+.featured-side-metadata .art-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  /* Bumps up the featured title size a bit for emphasis */
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.featured-side-metadata .art-details {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--art);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.featured-side-metadata .art-caption {
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* Ensure the text hides and displays like a regular card overlay when 'featured' is stripped */
+.art-piece:not(.featured) .featured-side-metadata {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+}
+
+.art-piece:not(.featured):hover .featured-side-metadata {
+  opacity: 1;
+}
+
+/* Match typography sizes to standard layout items when unfeatured */
+.art-piece:not(.featured) .featured-side-metadata .art-title {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.art-piece:not(.featured) .featured-side-metadata .art-details {
+  margin-bottom: 0px;
+}
+
+/* Mobile responsive fallback so it stacks cleanly on smaller phone screens */
+@media (max-width: 768px) {
+  .art-piece.featured {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-side-metadata {
+    padding: 2rem;
+  }
 }
 
 /*About Page Image*/

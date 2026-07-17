@@ -8,6 +8,35 @@
 		<link rel="stylesheet" href="styles.css">
 		<link rel="icon" type="ico" href="favicon.ico">
 		<style>
+
+			.gallery-filters {
+				display: flex;
+				gap: 1.5rem;
+				justify-content: center;
+				margin-bottom: 3rem;
+				flex-wrap: wrap;
+			}
+			
+			.filter-btn {
+				font-family: 'Space Mono', monospace;
+				font-size: 0.65rem;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+				color: var(--muted);
+				background: none;
+				border: none;
+				cursor: pointer;
+				padding: 0.5rem 1rem;
+				border-radius: 4px;
+				transition: all var(--transition);
+			}
+			
+			.filter-btn:hover,
+			.filter-btn.active {
+				color: var(--lit);
+				background: rgba(232,165,152,0.1);
+			}
+			
 			.gallery {
 				display: grid;
 				grid-template-columns: repeat(3, 1fr);
@@ -178,76 +207,90 @@
 			</div>
 
 			<section class="section-container">
+
+				<div class="gallery-filters">
+					<button class="filter-btn active" data-filter="all">All</button>
+					<button class="filter-btn" data-filter="photography">Photography</button>
+					<button class="filter-btn" data-filter="pencil">Pencil/Pen</button>
+					<button class="filter-btn" data-filter="calligraphy">Calligraphy</button>
+					<button class="filter-btn" data-filter="water">WaterColor</button>
+					<button class="filter-btn" data-filter="oil">Oil</button>
+					<button class="filter-btn" data-filter="acrylic">Acrylic</button>
+				</div>
 				<div class="gallery fade-in">
+					<!-- Featured Section Heading -->
+					<h4 class="gallery-section-heading featured" style="grid-column: 1 / -1; font-family: 'Space Mono', monospace; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;">
+						Featured
+					</h4>
 					<!-- Featured piece -->
-					<div class="art-piece featured">
-						<!--<div class="art-placeholder" style="background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);">
-							<span class="art-placeholder-icon">🎨</span>
-							<span>Upload Featured Artwork</span>
-						</div>-->
-						<img class="art-image" src="../../Pictures/Wallpapers/wallhaven-3zv7r3_3840x2160.png" alt="The Observer Effect">
-						<div class="art-overlay">
-							<div class="art-title">The Observer Effect</div>
-							<div class="art-details">Oil on Canvas · 90×120cm · 2025</div>
-							<div class="art-caption">An exploration of surveillance and self in the digital age</div>
+					<div class="art-piece featured" data-category="water">
+						<img class="art-image" src="../Portfolio_Site/Artwork/Watercolor/First-Bloom.jpeg" alt="First Bloom">
+						<div class="featured-side-metadata">
+							<div class="art-title">First Bloom</div>
+							<div class="art-details">WaterColor on paper · ~13×16cm · 2026</div>
+							<div class="art-caption">Third Attempt at watercolor</div>
 						</div>
 					</div>
 
 					<!-- Other pieces -->
-					<div class="art-piece">
+					<div class="art-piece" data-category="water">
 						<div class="art-placeholder" style="background: linear-gradient(135deg, #1e3a2f, #2d5a3d);">
-							<span class="art-placeholder-icon">✏️</span>
-							<span>Sketch</span>
+							<img class="art-image" src="../Portfolio_Site/Artwork/Watercolor/Lighthouse.jpeg" alt="Light House">
 						</div>
 						<div class="art-overlay">
-							<div class="art-title">Urban Fragments I</div>
-							<div class="art-details">Pencil on Paper · 2025</div>
+							<div class="art-title">Light House</div>
+							<div class="art-details">WaterColor on Paper · prior-2020</div>
+							<div class="art-caption">One of the older watercolor artworks i have.</div>
 						</div>
 					</div>
 
-					<div class="art-piece">
+					<div class="art-piece" data-category="calligraphy">
+						<div class="art-placeholder" style="background: linear-gradient(135deg, #1e3a2f, #2d5a3d);">
+							<img class="art-image" src="../Portfolio_Site/Artwork/Calligraphy/Ahmed-Glitch.jpeg" alt="Ahmed Glitched">
+						</div>
+						<div class="art-overlay">
+							<div class="art-title">Ahmed Glitched</div>
+							<div class="art-details">Marker on Paper · prior-2020</div>
+							<div class="art-caption">Myself Glitched.</div>
+						</div>
+					</div>
+
+					<div class="art-piece" data-category="calligraphy">
+						<div class="art-placeholder" style="background: linear-gradient(135deg, #1e3a2f, #2d5a3d);">
+							<img class="art-image" src="../Portfolio_Site/Artwork/Calligraphy/Never-stop-creating.jpeg" alt="Never stop creating">
+						</div>
+						<div class="art-overlay">
+							<div class="art-title">Never Stop Creating</div>
+							<div class="art-details">Marker on Paper · prior-2020</div>
+							<div class="art-caption">Never stop moving, Even if you have to crawl.</div>
+						</div>
+					</div>
+
+					<div class="art-piece" data-category="acrylic">
 						<div class="art-placeholder" style="background: linear-gradient(135deg, #2e1a3a, #4a2060);">
-							<span class="art-placeholder-icon">🖌️</span>
-							<span>Watercolor</span>
+							<img class="art-image" src="../Portfolio_Site/Artwork/Acrylic/Nightly-Blosom.jpeg" alt="Nightly Blosom">
 						</div>
 						<div class="art-overlay">
-							<div class="art-title">Chromatic Dissolution</div>
-							<div class="art-details">Watercolor · 2024</div>
+							<div class="art-title">Nightly Blosom</div>
+							<div class="art-details">Acrylic · Prior-2019</div>
+							<div class="art-caption">2nd oldest acrylic painting i have.</div>
 						</div>
 					</div>
 
-					<div class="art-piece">
-						<div class="art-placeholder" style="background: linear-gradient(135deg, #3a1a2a, #602040);">
-							<span class="art-placeholder-icon">🖼️</span>
-							<span>Mixed Media</span>
+					<div class="art-piece" data-category="acrylic">
+						<div class="art-placeholder" style="background: linear-gradient(135deg, #2e1a3a, #4a2060);">
+							<img class="art-image" src="../Portfolio_Site/Artwork/Acrylic/Abstract-1.jpeg" alt="Abstract Geometry">
 						</div>
 						<div class="art-overlay">
-							<div class="art-title">Signal/Noise</div>
-							<div class="art-details">Collage + Acrylic · 2024</div>
+							<div class="art-title">Triangles</div>
+							<div class="art-details">Acrylic · Prior-2019</div>
+							<div class="art-caption">Oldest acrylic painting i have.</div>
 						</div>
 					</div>
-
-					<div class="art-piece">
-						<div class="art-placeholder" style="background: linear-gradient(135deg, #1a2e3a, #205060);">
-							<span class="art-placeholder-icon">📸</span>
-							<span>Photography</span>
-						</div>
-						<div class="art-overlay">
-							<div class="art-title">Threshold</div>
-							<div class="art-details">Digital Photography · 2025</div>
-						</div>
-					</div>
-
-					<div class="art-piece">
-						<div class="art-placeholder" style="background: linear-gradient(135deg, #3a2e1a, #605020);">
-							<span class="art-placeholder-icon">🖥️</span>
-							<span>Digital Art</span>
-						</div>
-						<div class="art-overlay">
-							<div class="art-title">Recursive Dream</div>
-							<div class="art-details">Procreate · 2025</div>
-						</div>
-					</div>
+				</div>
+				<div class="no-art-card hidden">
+					<div>{}</div>
+					<h3>Working on something, You just wait</h3>
 				</div>
 			</section>
 
@@ -278,7 +321,7 @@
 			document.querySelectorAll('.art-piece').forEach(piece => {
 				piece.addEventListener('click', () => {
 					const img = piece.querySelector('img');
-					const overlay = piece.querySelector('.art-overlay');
+					const overlay = piece.querySelector('.art-overlay') || piece.querySelector('.featured-side-metadata');
 					const placeholder = piece.querySelector('.art-placeholder');
 					
 					const modalImage = document.getElementById('modalImage');

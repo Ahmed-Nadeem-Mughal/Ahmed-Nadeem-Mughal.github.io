@@ -211,6 +211,138 @@ function initProjectFilters() {
     toggleEmptyState();
 }
 
+/*
+function initArtworkFilters() {
+    const filterContainer = document.querySelector('.gallery-filters');
+    const noArtCard = document.querySelector('.no-art-card');
+    
+    // Safely exit if this isn't the artwork gallery page
+    if (!filterContainer) return;
+
+    const buttons = filterContainer.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.art-piece');
+    const featuredElements = document.querySelectorAll('.featured');
+    function toggleEmptyState() {
+        if (!noArtCard) return;
+        // Count cards that do NOT have the hidden class
+        const visibleCards = Array.from(cards).filter(card => !card.classList.contains('hidden'));
+        
+        if (visibleCards.length === 0) {
+            noArtCard.classList.remove('hidden');
+        } else {
+            noArtCard.classList.add('hidden');
+        }
+    }
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Update active button state style layout dynamically
+            buttons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const filter = button.getAttribute('data-filter');
+
+           cards.forEach(card => {
+    const category = card.getAttribute('data-category');
+    const isFeatured = card.classList.contains('featured');
+
+    if (filter === 'all') {
+    // Show standard gallery cards and restore featured pieces + heading
+    featuredElements.forEach(el => el.classList.remove('hidden'));
+    cards.forEach(card => card.classList.remove('hidden'));
+} else {
+    // Instantly drop all elements with the featured class tag
+    featuredElements.forEach(el => el.classList.add('hidden'));
+    
+    cards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        
+        if (card.classList.contains('featured')) {
+            card.classList.add('hidden');
+        } else if (category === filter) {
+            card.classList.remove('hidden');
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+}
+}); 
+
+            // Check if we need to show the empty state after filtering
+            toggleEmptyState();
+        });
+    });
+
+    // Run initial empty check on page build
+    toggleEmptyState();
+}*/
+
+function initArtworkFilters() {
+    const filterContainer = document.querySelector('.gallery-filters');
+    const noArtCard = document.querySelector('.no-art-card');
+    
+    if (!filterContainer) return;
+
+    const buttons = filterContainer.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.art-piece');
+    const heading = document.querySelector('.gallery-section-heading'); // Grab the 'Featured' heading
+
+    function toggleEmptyState() {
+        if (!noArtCard) return;
+        const visibleCards = Array.from(cards).filter(card => !card.classList.contains('hidden'));
+        
+        if (visibleCards.length === 0) {
+            noArtCard.classList.remove('hidden');
+        } else {
+            noArtCard.classList.add('hidden');
+        }
+    }
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            buttons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const filter = button.getAttribute('data-filter');
+
+            if (filter === 'all') {
+                // 1. Restore the 'Featured' text heading
+                if (heading) heading.classList.remove('hidden');
+
+               cards.forEach(card => {
+        card.classList.remove('hidden');
+        
+        // ── FIX IS HERE ──
+        // Check for the specific image by its unique title or its specific category
+        const titleElement = card.querySelector('.art-title');
+        if (titleElement && titleElement.textContent.trim() === 'First Bloom') {
+            card.classList.add('featured'); // Force the grid cell to span across 3 columns again
+        }
+    }); 
+            } else {
+                // 3. Hide the 'Featured' heading text for all specific tabs
+                if (heading) heading.classList.add('hidden');
+                
+                cards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    
+                    if (category === filter) {
+                        card.classList.remove('hidden');
+                        // 4. Strip the 'featured' layout class so it behaves like a normal grid card
+                        card.classList.remove('featured');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            }
+
+            toggleEmptyState();
+        });
+    });
+
+    toggleEmptyState();
+}
+
 // ── INITIALIZE ──
 document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
@@ -219,4 +351,5 @@ document.addEventListener('DOMContentLoaded', () => {
     animateSkillBars();
     initWritingFilters();
     initProjectFilters();
+    initArtworkFilters();
 });
