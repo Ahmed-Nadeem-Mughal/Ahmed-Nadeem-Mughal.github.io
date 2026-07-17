@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Projects — Ahmed Mughal</title>
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="styles.css">
+		<link rel="icon" type="ico" href="favicon.ico">
+		<style>
+			.project-card {
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-radius: 12px;
+				padding: 2.5rem;
+				transition: all var(--transition);
+				position: relative;
+				overflow: hidden;
+				margin-bottom: 2rem;
+			}
+			
+			.project-card::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background: linear-gradient(135deg, rgba(124,111,205,0.05), transparent);
+				opacity: 0;
+				transition: opacity var(--transition);
+			}
+			
+			.project-card:hover {
+				transform: translateY(-4px);
+				border-color: var(--accent2);
+			}
+			
+			.project-card:hover::before {
+				opacity: 1;
+			}
+			
+			.project-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				margin-bottom: 1.5rem;
+			}
+			
+			.project-status {
+				font-family: 'Space Mono', monospace;
+				font-size: 0.6rem;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+				padding: 0.3rem 0.8rem;
+				border-radius: 4px;
+				background: rgba(78,205,196,0.1);
+				color: var(--code);
+				border: 1px solid rgba(78,205,196,0.3);
+			}
+			
+			.project-status.wip {
+				background: rgba(200,169,110,0.1);
+				color: var(--accent);
+				border-color: rgba(200,169,110,0.3);
+			}
+			
+			.project-title {
+				font-family: 'Playfair Display', serif;
+				font-size: 1.8rem;
+				margin-bottom: 1rem;
+			}
+			
+			.project-description {
+				color: var(--muted);
+				font-size: 1.05rem;
+				line-height: 1.8;
+				margin-bottom: 1.5rem;
+			}
+			
+			.project-tech {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+				margin-bottom: 1.5rem;
+			}
+			
+			.tech-tag {
+				font-family: 'Space Mono', monospace;
+				font-size: 0.6rem;
+				padding: 0.3rem 0.7rem;
+				border: 1px solid var(--border);
+				border-radius: 4px;
+				color: var(--muted);
+			}
+			
+			.project-links {
+				display: flex;
+				gap: 1rem;
+			}
+			
+			.project-link {
+				font-family: 'Space Mono', monospace;
+				font-size: 0.6rem;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				color: var(--accent);
+				text-decoration: none;
+				padding: 0.5rem 1rem;
+				border: 1px solid var(--accent);
+				border-radius: 6px;
+				transition: all var(--transition);
+			}
+			
+			.project-link:hover {
+				background: var(--accent);
+				color: var(--bg);
+			}
+			
+			.project-filters {
+				grid-column: 1/-1;
+				display: flex;
+				gap: 1.5rem;
+				justify-content: center;
+				margin-bottom: 3rem;
+			}
+			
+			.filter-btn {
+				font-family: 'Space Mono', monospace;
+				font-size: 0.65rem;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+				color: var(--muted);
+				background: none;
+				border: none;
+				cursor: pointer;
+				padding: 0.5rem 1rem;
+				border-radius: 4px;
+				transition: all var(--transition);
+			}
+			
+			.filter-btn:hover,
+			.filter-btn.active {
+				color: var(--lit);
+				background: rgba(232,165,152,0.1);
+			}
+		</style>
+	</head>
+	<body>
+		<nav>
+			<a href="index.html" class="nav-logo">AM</a>
+			<button class="mobile-menu-btn">☰</button>
+			<ul class="nav-links">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="skills.html">Skills</a></li>
+				<li><a href="projects.html">Projects</a></li>
+				<li><a href="writing.html">Writing</a></li>
+				<li><a href="artwork.html">Artwork</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</nav>
+
+		<main>
+			<div class="page-header">
+				<div class="section-tag">003 — Projects</div>
+				<h1 class="section-title">What I've Built</h1>
+				<p class="section-subtitle">A collection of tools, scripts, and systems</p>
+			</div>
+
+			<section class="section-container grid-2">
+
+				<div class="project-filters">
+					<button class="filter-btn active" data-filter="all">All</button>
+					<button class="filter-btn" data-filter="python">Python</button>
+					<button class="filter-btn" data-filter="automation">Automation</button>
+					<button class="filter-btn" data-filter="cybersecurity">Cybersecurity</button>
+					<button class="filter-btn" data-filter="quality-of-life">Quality of life</button>
+				</div>
+
+				<!--<div class="project-card fade-in" data-category="python">
+					<div class="project-header">
+						<span class="project-status">Completed</span>
+					</div>
+					<h2 class="project-title">Network Scanner & Banner Grabber</h2>
+					<p class="project-description">A custom port scanner built from scratch using raw Python sockets. Features multi-threaded scanning for speed, service fingerprinting through banner grabbing, and an exportable report generator. Built to understand the fundamentals of network reconnaissance without relying on existing tools.</p>
+					<div class="project-tech">
+						<span class="tech-tag">Python</span>
+						<span class="tech-tag">Sockets</span>
+						<span class="tech-tag">Threading</span>
+						<span class="tech-tag">Argparse</span>
+						<span class="tech-tag">JSON</span>
+					</div>
+					<div class="project-links">
+						<a href="#" class="project-link">GitHub →</a>
+						<a href="#" class="project-link">Demo →</a>
+					</div>
+				</div>
+
+				<div class="project-card fade-in">
+					<div class="project-header">
+						<span class="project-status">Completed</span>
+					</div>
+					<h2 class="project-title">OSINT Username Harvester</h2>
+					<p class="project-description">Automated reconnaissance tool that checks username availability across 50+ social media platforms. Aggregates public profile data, analyzes online presence patterns, and generates a comprehensive OSINT report. Designed for ethical penetration testing and personal digital footprint assessment.</p>
+					<div class="project-tech">
+						<span class="tech-tag">Python</span>
+						<span class="tech-tag">Requests</span>
+						<span class="tech-tag">BeautifulSoup</span>
+						<span class="tech-tag">Regex</span>
+					</div>
+					<div class="project-links">
+						<a href="#" class="project-link">GitHub →</a>
+					</div>
+				</div>
+
+				<div class="project-card fade-in">
+					<div class="project-header">
+						<span class="project-status wip">In Progress</span>
+					</div>
+					<h2 class="project-title">Arch Linux Hardening Toolkit</h2>
+					<p class="project-description">A comprehensive Bash automation suite for securing Arch Linux installations. Covers firewall configuration (iptables/nftables), service hardening, kernel parameter tuning, file permission auditing, and automated security reporting. Designed to be modular and extensible for different threat models.</p>
+					<div class="project-tech">
+						<span class="tech-tag">Bash</span>
+						<span class="tech-tag">iptables</span>
+						<span class="tech-tag">systemd</span>
+						<span class="tech-tag">Linux</span>
+					</div>
+					<div class="project-links">
+						<a href="#" class="project-link">GitHub →</a>
+					</div>
+				</div>
+
+				<div class="project-card fade-in">
+					<div class="project-header">
+						<span class="project-status">Completed</span>
+					</div>
+					<h2 class="project-title">Personal Blog Engine</h2>
+					<p class="project-description">A lightweight static site generator written in Python. Converts Markdown files to HTML with support for code syntax highlighting, custom templates, and RSS feed generation. Powers my personal blog where I write about cybersecurity, programming, and the creative process.</p>
+					<div class="project-tech">
+						<span class="tech-tag">Python</span>
+						<span class="tech-tag">Markdown</span>
+						<span class="tech-tag">Jinja2</span>
+						<span class="tech-tag">HTML/CSS</span>
+					</div>
+					<div class="project-links">
+						<a href="#" class="project-link">GitHub →</a>
+						<a href="#" class="project-link">Live Site →</a>
+					</div>
+				</div>
+				 AI AUTOMATION
+				<div class="project-card fade-in">
+					<div class="project-header">
+						<span class="project-status">Available</span>
+					</div>
+					<h2 class="project-title">Document Intelligence Pipeline</h2>
+					<p class="project-description">Feed it a PDF, contract, report, or any text document — get back a structured summary, extracted key facts, or answers to specific questions. Built with the Claude API and Python. Useful for law firms, researchers, or anyone drowning in paperwork.</p>
+					<div class="project-tech">
+						<span class="tech-tag">Python</span>
+						<span class="tech-tag">Claude API</span>
+						<span class="tech-tag">PDF Parsing</span>
+						<span class="tech-tag">JSON</span>
+					</div>
+					<div class="project-links">
+						<a href="contact.html" class="project-link">Commission →</a>
+					</div>
+				</div>
+
+				<div class="project-card fade-in">
+					<div class="project-header">
+						<span class="project-status">Available</span>
+					</div>
+					<h2 class="project-title">Workflow & Email Automation</h2>
+					<p class="project-description">Automate inbox triage, draft replies, summarize long threads, or route messages based on content — all running in the background without manual input. Connects your existing tools together using Python and AI APIs so repetitive decisions make themselves.</p>
+					<div class="project-tech">
+						<span class="tech-tag">Python</span>
+						<span class="tech-tag">AI API</span>
+						<span class="tech-tag">SMTP</span>
+						<span class="tech-tag">Automation</span>
+					</div>
+					<div class="project-links">
+						<a href="contact.html" class="project-link">Commission →</a>
+					</div>
+				</div>
+
+				<div class="project-card fade-in">
+					<div class="project-header">
+						<span class="project-status wip">In Progress</span>
+					</div>
+					<h2 class="project-title">OSINT + AI Analysis Pipeline</h2>
+					<p class="project-description">Combines open-source intelligence gathering with AI-powered analysis. Automates the collection of public data, surfaces patterns a human would miss, and generates structured reports from raw web sources. Built on top of existing Python OSINT tooling with an AI reasoning layer on top.</p>
+					<div class="project-tech">
+						<span class="tech-tag">Python</span>
+						<span class="tech-tag">OSINT</span>
+						<span class="tech-tag">Claude API</span>
+						<span class="tech-tag">BeautifulSoup</span>
+					</div>
+					<div class="project-links">
+						<a href="contact.html" class="project-link">Inquire →</a>
+					</div>
+				</div>
+
+				<div class="project-card fade-in">
+					<div class="project-header">
+						<span class="project-status">Available</span>
+					</div>
+					<h2 class="project-title">Custom Automation Builds</h2>
+					<p class="project-description">Have a repetitive workflow that should be automated but don't know where to start? Describe the problem and I'll scope a solution. Previous builds have covered data extraction, report generation, scheduled scraping, and AI-assisted classification tasks.</p>
+					<div class="project-tech">
+						<span class="tech-tag">Python</span>
+						<span class="tech-tag">AI API</span>
+						<span class="tech-tag">Custom</span>
+					</div>
+					<div class="project-links">
+						<a href="contact.html" class="project-link">Get a Quote →</a>
+					</div>
+				</div>-->
+				<div class="no-projects-card hidden">
+					<div>{}</div>
+					<h3>Working on something, You just wait</h3>
+				</div>
+			</section>
+		</main>
+
+		<footer>
+			<div class="footer-content">
+				<p class="footer-text">© 2026 Mughal Sahab — All rights reserved</p>
+				<div class="footer-links">
+					<a href="mailto:your@email.com">Email</a>
+					<a href="https://github.com/" target="_blank">GitHub</a>
+					<a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+				</div>
+			</div>
+		</footer>
+
+		<script src="script.js"></script>
+	</body>
+</html>

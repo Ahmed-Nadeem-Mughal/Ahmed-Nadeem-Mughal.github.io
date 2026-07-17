@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Writing — Mughal Sahab</title>
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="styles.css">
+		<link rel="icon" type="ico" href="favicon.ico">
+		<style>
+			a:link {
+				color: #FFFFFF;
+				text-decoration: none; /* Removes the default underline */
+			}
+			
+			/* 2. Visited link */
+			a:visited {
+				color: #FFFFFF;
+			}
+			
+			/* 3. Mouse over link (Hover) */
+			a:hover {
+				color: #FFFFFF;
+			}
+			
+			/* 4. Selected link (The exact moment it's clicked) */
+			a:active {
+				color: #FFFFFF;
+			}
+			
+			.writing-filters {
+				display: flex;
+				gap: 1.5rem;
+				justify-content: center;
+				margin-bottom: 3rem;
+				flex-wrap: wrap;
+			}
+			
+			.filter-btn {
+				font-family: 'Space Mono', monospace;
+				font-size: 0.65rem;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+				color: var(--muted);
+				background: none;
+				border: none;
+				cursor: pointer;
+				padding: 0.5rem 1rem;
+				border-radius: 4px;
+				transition: all var(--transition);
+			}
+			
+			.filter-btn:hover,
+			.filter-btn.active {
+				color: var(--lit);
+				background: rgba(232,165,152,0.1);
+			}
+			
+			.writing-grid {
+				display: grid;
+				gap: 2rem;
+			}
+			
+			.writing-card {
+				display: grid;
+				grid-template-columns: 100px 1fr;
+				gap: 2.5rem;
+				padding: 2.5rem;
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-radius: 12px;
+				transition: all var(--transition);
+				cursor: pointer;
+			}
+			
+			.writing-card:hover {
+				border-color: var(--lit);
+				transform: translateX(8px);
+			}
+			
+			.writing-type {
+				font-family: 'Space Mono', monospace;
+				font-size: 0.6rem;
+				letter-spacing: 0.2em;
+				text-transform: uppercase;
+				color: var(--lit);
+				margin-bottom: 0.8rem;
+			}
+			
+			.writing-title {
+				font-family: 'Playfair Display', serif;
+				font-size: 1.5rem;
+				margin-bottom: 1rem;
+			}
+			
+			.writing-excerpt {
+				font-style: italic;
+				font-size: 1rem;
+				color: var(--muted);
+				border-left: 3px solid var(--lit);
+				padding-left: 1.5rem;
+				line-height: 1.9;
+				margin-bottom: 1rem;
+			}
+			
+			.writing-meta {
+				display: flex;
+				gap: 2rem;
+				font-family: 'Space Mono', monospace;
+				font-size: 0.6rem;
+				color: var(--muted);
+				letter-spacing: 0.1em;
+			}
+		</style>
+	</head>
+	<body>
+		<nav>
+			<a href="index.html" class="nav-logo">AM</a>
+			<button class="mobile-menu-btn">☰</button>
+			<ul class="nav-links">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="skills.html">Skills</a></li>
+				<li><a href="projects.html">Projects</a></li>
+				<li><a href="writing.html">Writing</a></li>
+				<li><a href="artwork.html">Artwork</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</nav>
+
+		<main>
+			<div class="page-header">
+				<div class="section-tag">004 — Literature</div>
+				<h1 class="section-title">Written Word</h1>
+				<p class="section-subtitle">Stories, essays, and poetry from the quiet hours</p>
+			</div>
+
+			<section class="section-container">
+				<div class="writing-filters">
+					<button class="filter-btn active" data-filter="all">All</button>
+					<button class="filter-btn" data-filter="short-story">Short Stories</button>
+					<button class="filter-btn" data-filter="essay">Essays</button>
+					<button class="filter-btn" data-filter="poetry">Poetry</button>
+				</div>
+
+				<div class="writing-grid fade-in">
+					<a href="Essay/TheSecondBrain.html" class="content-item" data-category="essay">
+						<div class="writing-card">
+							<div class="writing-number"></div>
+							<div>
+								<div class="writing-type">Essay</div>
+								<div class="writing-title">The second Brain</div>
+								<div class="writing-excerpt">
+									"Conversing long enough he understood the one he didnt want to get along with. He saw the light at the end of the tunnel. He saw power from within, he belived in himself."
+								</div>
+								<div class="writing-meta">
+									<span>2026</span>
+									<span>355 words</span>
+									<span>Technology and Phsycology</span>
+								</div>
+							</div>
+						</div>
+					</a>
+
+					<!--<div class="writing-card content-item" data-category="essay">
+						<div class="writing-number"></div>
+						<div>
+							<div class="writing-type">Essay</div>
+							<div class="writing-title">On Attention in the Age of Infinite Scroll</div>
+							<div class="writing-excerpt">
+								"To reclaim attention is not a productivity hack. It is an act of self-determination — a refusal to let the architecture of someone else's profit motive shape the contours of your inner life."
+							</div>
+							<div class="writing-meta">
+								<span>2025</span>
+								<span>1,800 words</span>
+								<span>Technology</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="writing-card content-item" data-category="poetry">
+						<div class="writing-number"></div>
+						<div>
+							<div class="writing-type">Poetry</div>
+							<div class="writing-title">Root Access</div>
+							<div class="writing-excerpt">
+								"Every system has a door / left slightly open by the one / who built it — who could not bear / to be entirely locked out / of what they made."
+							</div>
+							<div class="writing-meta">
+								<span>2024</span>
+								<span>14 lines</span>
+								<span>Free Verse</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="writing-card content-item" data-category="short-story">
+						<div class="writing-number"></div>
+						<div>
+							<div class="writing-type">Short Story</div>
+							<div class="writing-title">The Last Analog</div>
+							<div class="writing-excerpt">
+								"In a world where every thought was indexed and every memory stored in the cloud, she kept a paper journal. The act felt subversive — a quiet rebellion against the tyranny of the permanent record."
+							</div>
+							<div class="writing-meta">
+								<span>2024</span>
+								<span>3,100 words</span>
+								<span>Speculative Fiction</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="writing-card content-item" data-category="essay">
+						<div class="writing-number"></div>
+						<div>
+							<div class="writing-type">Essay</div>
+							<div class="writing-title">Why I Write Code and Poetry</div>
+							<div class="writing-excerpt">
+								"Programming and poetry share a surprising kinship. Both demand precision within constraint. Both reward elegance. Both are, at their core, acts of translation — converting the ineffable into something that can be executed, or felt."
+							</div>
+							<div class="writing-meta">
+								<span>2023</span>
+								<span>2,200 words</span>
+								<span>Creative Process</span>
+							</div>
+						</div>
+					</div>-->
+				</div>
+				<div class="no-writings-card hidden">
+					<div>{}</div>
+					<h3>Working on something, You just wait</h3>
+				</div>
+			</section>
+		</main>
+
+		<footer>
+			<div class="footer-content">
+				<p class="footer-text">© 2026 Mughal Sahab — All rights reserved</p>
+				<div class="footer-links">
+					<a href="mailto:ahmed.proffesion.acc@gmail.com">Email</a>
+					<a href="https://github.com/Ahmed-Nadeem-Mughal" target="_blank">GitHub</a>
+					<a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+				</div>
+			</div>
+		</footer>
+
+		<script src="script.js"></script>
+	</body>
+</html>

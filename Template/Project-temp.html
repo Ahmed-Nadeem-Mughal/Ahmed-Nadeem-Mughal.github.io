@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Name — Mughal Sahab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .project-full {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .project-hero {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .project-status-badge {
+            display: inline-block;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.9rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            background: rgba(78,205,196,0.1);
+            color: var(--code);
+            border: 1px solid rgba(78,205,196,0.3);
+        }
+
+        .project-status-badge.wip {
+            background: rgba(200,169,110,0.1);
+            color: var(--accent);
+            border-color: rgba(200,169,110,0.3);
+        }
+
+        .project-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .project-tagline {
+            font-size: 1.15rem;
+            color: var(--muted);
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .project-links-row {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.65rem 1.2rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 1px solid var(--accent);
+            border-radius: 6px;
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        .project-image {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            margin-bottom: 3rem;
+        }
+
+        .section-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0.4);
+            transform-origin: left;
+        }
+
+        .project-description {
+            font-size: 1.05rem;
+            color: var(--muted);
+            line-height: 2;
+        }
+
+        .project-description p {
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0 2rem;
+        }
+
+        .tech-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            padding: 0.3rem 0.8rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--muted);
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            gap: 0.75rem;
+            align-items: baseline;
+        }
+
+        .feature-list li::before {
+            content: "▹";
+            color: var(--accent);
+        }
+
+        .code-snippet {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--code);
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .back-link:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-logo">MS</a>
+        <button class="mobile-menu-btn">☰</button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="writing.html">Writing</a></li>
+            <li><a href="artwork.html">Artwork</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="section-container">
+            <a href="projects.html" class="back-link">← Back to Projects</a>
+
+            <article class="project-full">
+                <header class="project-hero">
+                    <div class="project-status-badge">Completed</div>
+                    <h1 class="project-title">Network Scanner & Banner Grabber</h1>
+                    <p class="project-tagline">A custom reconnaissance tool built from raw sockets.</p>
+
+                    <div class="project-links-row">
+                        <a href="#" class="btn-outline">📁 Source Code</a>
+                        <a href="#" class="btn-outline">🖥 Live Demo</a>
+                    </div>
+                </header>
+
+                <div class="project-image">
+                    [ Screenshot / GIF of the project in action ]
+                </div>
+
+                <h2 class="section-heading">What is this?</h2>
+                <div class="project-description">
+                    <p>A multi‑threaded network scanner written in Python. It performs TCP port scanning, service version detection via banner grabbing, and outputs structured reports. I built it to understand the low‑level mechanics behind tools like Nmap, while keeping full control over the scan process.</p>
+                </div>
+
+                <h3 class="section-heading">Tech Stack</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python 3.11</span>
+                    <span class="tech-tag">Raw Sockets</span>
+                    <span class="tech-tag">Threading</span>
+                    <span class="tech-tag">Argparse</span>
+                    <span class="tech-tag">JSON</span>
+                </div>
+
+                <h3 class="section-heading">Key Features</h3>
+                <ul class="feature-list">
+                    <li>Multi‑threaded scanning (configurable thread count)</li>
+                    <li>Banner grabbing for service identification</li>
+                    <li>Export results to JSON or plain‑text</li>
+                    <li>Stealth mode with random delays</li>
+                    <li>Resumable scans (skip already scanned ports)</li>
+                </ul>
+
+                <h3 class="section-heading">Code Sample</h3>
+                <div class="code-snippet">
+<pre>def grab_banner(ip, port):
+    try:
+        sock = socket.socket()
+        sock.settimeout(2)
+        sock.connect((ip, port))
+        sock.send(b'HEAD / HTTP/1.0\r\n\r\n')
+        banner = sock.recv(1024).decode().strip()
+        return banner.split('\n')[0]
+    except:
+        return None</pre>
+                </div>
+
+                <h3 class="section-heading">What I Learned</h3>
+                <div class="project-description">
+                    <p>Building a scanner from scratch taught me how TCP handshakes really work, the importance of non‑blocking I/O, and the ethical considerations of network probing. It also became my go‑to lab for experimenting with concurrency patterns in Python.</p>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text">© 2026 Mughal Sahab — All rights reserved</p>
+            <div class="footer-links">
+                <a href="mailto:your@email.com">Email</a>
+                <a href="https://github.com/" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

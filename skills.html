@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Skills — Mughal Sahab</title>
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="styles.css">
+		<link rel="icon" type="ico" href="favicon.ico">
+		<style>
+			.skills-section {
+				margin-bottom: 4rem;
+			}
+			
+			.skills-category {
+				font-family: 'Space Mono', monospace;
+				font-size: 0.7rem;
+				letter-spacing: 0.2em;
+				text-transform: uppercase;
+				color: var(--accent);
+				margin-bottom: 2rem;
+			}
+			
+			.skills-list {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 1.5rem;
+				}<link rel="icon" type="image/png" href="favicon.png">
+				
+				.skill-item {
+					background: var(--surface);
+					border: 1px solid var(--border);
+					border-radius: 10px;
+					padding: 1.5rem;
+					transition: all var(--transition);
+				}
+				
+				.skill-item:hover {
+					border-color: var(--code);
+					transform: translateX(4px);
+				}
+				
+				.skill-header {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					margin-bottom: 1rem;
+				}
+				
+				.skill-name {
+					font-family: 'Space Mono', monospace;
+					font-size: 0.8rem;
+					color: var(--code);
+					letter-spacing: 0.05em;
+				}
+				
+				.skill-pct {
+					font-family: 'Space Mono', monospace;
+					font-size: 0.7rem;
+					color: var(--muted);
+				}
+				
+				.skill-bar {
+					height: 4px;
+					background: var(--border);
+					border-radius: 999px;
+					overflow: hidden;
+				}
+				
+				.skill-fill {
+					height: 100%;
+					background: linear-gradient(90deg, var(--accent2), var(--code));
+					border-radius: 999px;
+					width: 0;
+					transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+				}
+				
+				.tools-grid {
+					display: grid;
+					grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+					gap: 1rem;
+				}
+				
+				.tool-item {
+					background: var(--surface);
+					border: 1px solid var(--border);
+					border-radius: 8px;
+					padding: 1.5rem;
+					text-align: center;
+					transition: all var(--transition);
+				}
+				
+				.tool-item:hover {
+					border-color: var(--accent2);
+					transform: translateY(-2px);
+				}
+				
+				.tool-icon {
+					font-size: 2rem;
+					margin-bottom: 0.5rem;
+				}
+				
+				.tool-name {
+					font-family: 'Space Mono', monospace;
+					font-size: 0.65rem;
+					color: var(--muted);
+					letter-spacing: 0.05em;
+				}
+				
+				@media (max-width: 768px) {
+					.skills-list {
+						grid-template-columns: 1fr;
+					}
+				}
+		</style>
+	</head>
+	<body>
+		<nav>
+			<a href="index.html" class="nav-logo">AM</a>
+			<button class="mobile-menu-btn">☰</button>
+			<ul class="nav-links">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="skills.html">Skills</a></li>
+				<li><a href="projects.html">Projects</a></li>
+				<li><a href="writing.html">Writing</a></li>
+				<li><a href="artwork.html">Artwork</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</nav>
+
+		<main>
+			<div class="page-header">
+				<div class="section-tag">002 — Skills</div>
+				<h1 class="section-title">Technical Arsenal</h1>
+				<p class="section-subtitle">Languages, tools, and technologies I work with</p>
+			</div>
+
+			<section class="section-container">
+				<div class="skills-section fade-in">
+					<div class="skills-category">Programming Languages</div>
+					<div class="skills-list">
+						<div class="skill-item">
+							<div class="skill-header">
+								<span class="skill-name">Python</span>
+								<span class="skill-pct">85%</span>
+							</div>
+							<div class="skill-bar">
+								<div class="skill-fill" data-pct="85"></div>
+							</div>
+						</div>
+						<div class="skill-item">
+							<div class="skill-header">
+								<span class="skill-name">Bash / Shell</span>
+								<span class="skill-pct">75%</span>
+							</div>
+							<div class="skill-bar">
+								<div class="skill-fill" data-pct="75"></div>
+							</div>
+						</div>
+						<div class="skill-item">
+							<div class="skill-header">
+								<span class="skill-name">C++</span>
+								<span class="skill-pct">15%</span>
+							</div>
+							<div class="skill-bar">
+								<div class="skill-fill" data-pct="15"></div>
+							</div>
+						</div>
+						<div class="skill-item">
+							<div class="skill-header">
+								<span class="skill-name">HTML</span>
+								<span class="skill-pct">90%</span>
+							</div>
+							<div class="skill-bar">
+								<div class="skill-fill" data-pct="90"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="skills-section fade-in">
+					<div class="skills-category">AI & Automation</div>
+					<div class="skills-list">
+						<div class="skill-item">
+							<div class="skill-header">
+								<span class="skill-name">Prompt Engineering</span>
+								<span class="skill-pct">30%</span>
+							</div>
+							<div class="skill-bar">
+								<div class="skill-fill" data-pct="30"></div>
+							</div>
+						</div>
+						<div class="skill-item">
+							<div class="skill-header">
+								<span class="skill-name">Claude API</span>
+								<span class="skill-pct">Interested</span>
+							</div>
+							<div class="skill-bar">
+								<div class="skill-fill" data-pct="0"></div>
+							</div>
+						</div>
+						<div class="skill-item">
+							<div class="skill-header">
+								<span class="skill-name">Workflow Automation</span>
+								<span class="skill-pct">Interested</span>
+							</div>
+							<div class="skill-bar">
+								<div class="skill-fill" data-pct="0"></div>
+							</div>
+						</div>
+						<div class="skill-item">
+							<div class="skill-header">
+								<span class="skill-name">N8N</span>
+								<span class="skill-pct">Interested</span>
+							</div>
+							<div class="skill-bar">
+								<div class="skill-fill" data-pct="0"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="skills-section fade-in">
+					<div class="skills-category">Cybersecurity & Systems</div>
+					<div class="skills-list">
+						<div class="skill-item">
+							<div class="skill-header">
+								<span class="skill-name">Network Security</span>
+								<span class="skill-pct">Interested</span>
+							</div>
+							<div class="skill-bar">
+								<div class="skill-fill" data-pct="0"></div>
+							</div>
+						</div>
+						<div class="skill-item">
+							<div class="skill-header">
+								<span class="skill-name">OSINT Techniques</span>
+								<span class="skill-pct">Interested</span>
+							</div>
+							<div class="skill-bar">
+								<div class="skill-fill" data-pct="0"></div>
+							</div>
+						</div>
+						<div class="skill-item">
+							<div class="skill-header">
+								<span class="skill-name">Linux Administration</span>
+								<span class="skill-pct">Interested</span>
+							</div>
+							<div class="skill-bar">
+								<div class="skill-fill" data-pct="0"></div>
+							</div>
+						</div>
+						<div class="skill-item">
+							<div class="skill-header">
+								<span class="skill-name">Penetration Testing</span>
+								<span class="skill-pct">Interested</span>
+							</div>
+							<div class="skill-bar">
+								<div class="skill-fill" data-pct="0"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="skills-section fade-in">
+					<div class="skills-category">Tools & Platforms</div>
+					<div class="tools-grid">
+						<div class="tool-item">
+							<div class="tool-icon">🐧</div>
+							<div class="tool-name">Arch Linux</div>
+						</div>
+						<div class="tool-item">
+							<div class="tool-icon">📝</div>
+							<div class="tool-name">NeoVim</div>
+						</div>
+						<div class="tool-item">
+							<div class="tool-icon">🐍</div>
+							<div class="tool-name">Python3</div>
+						</div>
+						<!--<div class="tool-item">
+							<div class="tool-icon">🐳</div>
+							<div class="tool-name">Docker</div>
+						</div>
+						<div class="tool-item">
+							<div class="tool-icon">🔧</div>
+							<div class="tool-name">Git</div>
+						</div>
+						<div class="tool-item">
+							<div class="tool-icon">🖥️</div>
+							<div class="tool-name">Tmux</div>
+						</div>
+						<div class="tool-item">
+							<div class="tool-icon">🤖</div>
+							<div class="tool-name">Claude API</div>
+						</div>
+						<div class="tool-item">
+							<div class="tool-icon">⚡</div>
+							<div class="tool-name">OpenAI API</div>
+						</div>
+						<div class="tool-item">
+							<div class="tool-icon">🔗</div>
+							<div class="tool-name">LangChain</div>
+						</div>
+						<div class="tool-item">
+							<div class="tool-icon">📄</div>
+							<div class="tool-name">PDF Parsing</div>
+						</div>
+						<div class="tool-item">
+							<div class="tool-icon">🛡️</div>
+							<div class="tool-name">Metasploit</div>
+						</div>
+						<div class="tool-item">
+							<div class="tool-icon">🔍</div>
+							<div class="tool-name">Wireshark</div>
+						</div>
+            <div class="tool-item">
+							<div class="tool-icon">🎯</div>
+							<div class="tool-name">TryHackMe</div>
+						</div>
+						<div class="tool-item">
+							<div class="tool-icon">📊</div>
+							<div class="tool-name">HackTheBox</div>
+						</div>-->
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer>
+			<div class="footer-content">
+				<p class="footer-text">© 2026 Mughal Sahab — All rights reserved</p>
+				<div class="footer-links">
+					<a href="mailto:your@email.com">Email</a>
+					<a href="https://github.com/" target="_blank">GitHub</a>
+					<a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+				</div>
+			</div>
+		</footer>
+
+		<script src="script.js"></script>
+	</body>
+</html>

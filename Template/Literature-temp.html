@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title of the Piece — Mughal Sahab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .writing-full {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .writing-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .writing-type-badge {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--lit);
+            margin-bottom: 1rem;
+        }
+
+        .writing-title-main {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .writing-date {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+        }
+
+        .writing-body {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: var(--text);
+        }
+
+        .writing-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .writing-body blockquote {
+            border-left: 3px solid var(--lit);
+            margin-left: 0;
+            padding-left: 1.5rem;
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .writing-footer-meta {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 2rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .back-link:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-logo">MS</a>
+        <button class="mobile-menu-btn">☰</button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="writing.html">Writing</a></li>
+            <li><a href="artwork.html">Artwork</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="section-container">
+            <a href="writing.html" class="back-link">← Back to Writing</a>
+
+            <article class="writing-full">
+                <header class="writing-header">
+                    <div class="writing-type-badge">Short Story</div>
+                    <h1 class="writing-title-main">The Weight of Signals</h1>
+                    <div class="writing-date">Published: March 2025</div>
+                </header>
+
+                <div class="writing-body">
+                    <p>He stared at the terminal long after the script had finished running. The data was all there — names, coordinates, timestamps — but he could not bring himself to read it. Knowing, he understood, was its own kind of violence.</p>
+
+                    <p>The coffee had gone cold an hour ago, a forgotten prop in a scene that had already changed. Outside, the city hummed its indifferent neon hum, but in here, time had folded into a single, unbearable weight.</p>
+
+                    <blockquote>
+                        "The truth is not a gift. It is a weapon. And the person who hands it to you rarely checks if you are armed."
+                    </blockquote>
+
+                    <p>He thought of her then. Not the data‑points — the age, the last‑known address, the flagged transactions — but the person behind them. The gap between a life and its digital reflection had never felt wider.</p>
+
+                    <p>The cursor blinked. Waiting. He pressed Ctrl+C and closed the terminal window.</p>
+
+                    <p>Some signals, he decided, weren't meant to be followed.</p>
+                </div>
+
+                <div class="writing-footer-meta">
+                    <span>Genre: Cyberpunk</span>
+                    <span>Word count: 2,400</span>
+                    <span>Reading time: ~10 min</span>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text">© 2026 Mughal Sahab — All rights reserved</p>
+            <div class="footer-links">
+                <a href="mailto:your@email.com">Email</a>
+                <a href="https://github.com/" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

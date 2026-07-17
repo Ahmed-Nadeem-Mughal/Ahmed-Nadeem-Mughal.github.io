@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Contact — Ahmed Mughal</title>
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="styles.css">
+		<link rel="icon" type="ico" href="favicon.ico">
+		<style>
+			.contact-layout {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 4rem;
+			}
+			
+			.contact-message {
+				font-size: 1.1rem;
+				color: var(--muted);
+				font-style: italic;
+				line-height: 2;
+				margin-bottom: 2rem;
+			}
+			
+			.contact-methods {
+				display: flex;
+				flex-direction: column;
+				gap: 1rem;
+			}
+			
+			.contact-method {
+				display: flex;
+				align-items: center;
+				gap: 1.5rem;
+				padding: 1.5rem;
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-radius: 10px;
+				text-decoration: none;
+				color: var(--text);
+				transition: all var(--transition);
+			}
+			
+			.contact-method:hover {
+				border-color: var(--accent);
+				transform: translateX(8px);
+				background: rgba(200,169,110,0.03);
+			}
+			
+			.contact-method-icon {
+				font-size: 1.5rem;
+				width: 40px;
+				height: 40px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: rgba(200,169,110,0.1);
+				border-radius: 10px;
+			}
+			
+			.contact-method-label {
+				font-family: 'Space Mono', monospace;
+				font-size: 0.6rem;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+				color: var(--muted);
+				margin-bottom: 0.2rem;
+			}
+			
+			.contact-method-value {
+				font-size: 1.05rem;
+				color: var(--accent);
+			}
+			
+			.contact-form {
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-radius: 12px;
+				padding: 2.5rem;
+			}
+			
+			.form-title {
+				font-family: 'Playfair Display', serif;
+				font-size: 1.5rem;
+				margin-bottom: 2rem;
+			}
+			
+			.form-group {
+				margin-bottom: 1.5rem;
+			}
+			
+			.form-label {
+				font-family: 'Space Mono', monospace;
+				font-size: 0.6rem;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+				color: var(--muted);
+				margin-bottom: 0.5rem;
+				display: block;
+			}
+			
+			.form-input,
+			.form-textarea {
+				width: 100%;
+				padding: 0.8rem 1rem;
+				background: var(--bg);
+				border: 1px solid var(--border);
+				border-radius: 8px;
+				color: var(--text);
+				font-family: 'Crimson Pro', serif;
+				font-size: 1rem;
+				transition: border-color var(--transition);
+			}
+			
+			.form-input:focus,
+			.form-textarea:focus {
+				outline: none;
+				border-color: var(--accent);
+			}
+			
+			.form-textarea {
+				min-height: 150px;
+				resize: vertical;
+			}
+			
+			.form-submit {
+				width: 100%;
+				padding: 1rem;
+				background: linear-gradient(135deg, var(--accent), var(--accent2));
+				border: none;
+				border-radius: 8px;
+				color: var(--bg);
+				font-family: 'Space Mono', monospace;
+				font-size: 0.7rem;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+				cursor: pointer;
+				transition: all var(--transition);
+				font-weight: 700;
+			}
+			
+			.form-submit:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 10px 30px rgba(200,169,110,0.3);
+			}
+			
+			.social-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1rem;
+				margin-top: 2rem;
+			}
+			
+			.social-link {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 0.5rem;
+				padding: 1rem;
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-radius: 8px;
+				text-decoration: none;
+				color: var(--muted);
+				font-family: 'Space Mono', monospace;
+				font-size: 0.6rem;
+				letter-spacing: 0.1em;
+				transition: all var(--transition);
+			}
+			
+			.social-link:hover {
+				border-color: var(--accent);
+				color: var(--accent);
+			}
+			
+			@media (max-width: 768px) {
+				.contact-layout {
+					grid-template-columns: 1fr;
+				}
+				
+				.social-grid {
+					grid-template-columns: repeat(2, 1fr);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<nav>
+			<a href="index.html" class="nav-logo">AM</a>
+			<button class="mobile-menu-btn">☰</button>
+			<ul class="nav-links">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="skills.html">Skills</a></li>
+				<li><a href="projects.html">Projects</a></li>
+				<li><a href="writing.html">Writing</a></li>
+				<li><a href="artwork.html">Artwork</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</nav>
+
+		<main>
+			<div class="page-header">
+				<div class="section-tag">006 — Contact</div>
+				<h1 class="section-title">Get In Touch</h1>
+				<p class="section-subtitle">Let's build something together</p>
+			</div>
+
+			<section class="section-container">
+				<div class="contact-layout fade-in">
+					<div>
+						<p class="contact-message">
+							Whether you want to collaborate on a project, commission an AI automation
+							tool, discuss ideas at the intersection of technology and art, or just say
+							hello — my inbox is open. I'm especially interested in opportunities related
+							to cybersecurity, AI automation, creative technology, and open-source projects.
+						</p>
+
+						<div class="contact-methods">
+							<a href="mailto:ahmed.proffession.acc@gmail.com" class="contact-method">
+								<div class="contact-method-icon">✉</div>
+								<div>
+									<div class="contact-method-label">Email</div>
+									<div class="contact-method-value">ahmed.proffession.acc@gmail.com</div>
+								</div>
+							</a>
+
+							<a href="https://github.com/Ahmed-Nadeem-Mughal" target="_blank" class="contact-method">
+								<div class="contact-method-icon">⊚</div>
+								<div>
+									<div class="contact-method-label">GitHub</div>
+									<div class="contact-method-value">github.com/Ahmed-Nadeem-Mughal</div>
+								</div>
+							</a>
+
+							<a href="https://linkedin.com/" target="_blank" class="contact-method">
+								<div class="contact-method-icon">◈</div>
+								<div>
+									<div class="contact-method-label">LinkedIn</div>
+									<div class="contact-method-value">linkedin.com/in/yourprofile</div>
+								</div>
+							</a>
+						</div>
+
+						<div class="social-grid">
+							<a href="#" class="social-link">Twitter</a>
+							<a href="#" class="social-link">Discord</a>
+							<a href="https://www.instagram.com/the._.mughal?utm_source=qr&igsh=MW52Mzk0aHRobjBxZw%3D%3D" target="_blank" class="social-link">Instagram</a>
+							<a href="https://www.youtube.com/@the.unique.mughal" target="_blank" class="social-link">YouTube</a>
+						</div>
+					</div>
+
+					<div class="contact-form">
+						<h3 class="form-title">Send a Message</h3>
+						<form action="#" method="POST">
+							<div class="form-group">
+								<label class="form-label" for="name">Name</label>
+								<input type="text" id="name" class="form-input" placeholder="Your name" required>
+							</div>
+
+							<div class="form-group">
+								<label class="form-label" for="email">Email</label>
+								<input type="email" id="email" class="form-input" placeholder="your@email.com" required>
+							</div>
+
+							<div class="form-group">
+								<label class="form-label" for="subject">Subject</label>
+								<input type="text" id="subject" class="form-input" placeholder="Collaboration / Question / Hello">
+							</div>
+
+							<div class="form-group">
+								<label class="form-label" for="message">Message</label>
+								<textarea id="message" class="form-textarea" placeholder="What's on your mind?" required></textarea>
+							</div>
+
+							<button type="submit" class="form-submit">Send Message →</button>
+						</form>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer>
+			<div class="footer-content">
+				<p class="footer-text">© 2026 Mughal Sahab — All rights reserved</p>
+				<div class="footer-links">
+					<a href="mailto:your@email.com">Email</a>
+					<a href="https://github.com/" target="_blank">GitHub</a>
+					<a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+				</div>
+			</div>
+		</footer>
+
+		<script src="script.js"></script>
+	</body>
+</html>

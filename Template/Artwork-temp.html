@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artwork Title — Mughal Sahab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .artwork-full {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .artwork-hero {
+            margin-bottom: 2rem;
+        }
+
+        .artwork-image-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/10;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .artwork-image-wrapper:hover {
+            transform: scale(1.01);
+        }
+
+        .artwork-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .artwork-image-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .artwork-image-placeholder-icon {
+            font-size: 4rem;
+            opacity: 0.3;
+        }
+
+        .artwork-info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .artwork-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .artwork-category {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--art);
+            margin-bottom: 1.5rem;
+        }
+
+        .artwork-description {
+            font-size: 1.05rem;
+            color: var(--muted);
+            line-height: 2;
+        }
+
+        .artwork-description p {
+            margin-bottom: 1.5rem;
+        }
+
+        .artwork-meta {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .meta-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        .meta-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .meta-value {
+            font-size: 1rem;
+            color: var(--text);
+        }
+
+        .artwork-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .artwork-nav a {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--art);
+            text-decoration: none;
+            transition: opacity 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .artwork-nav a:hover {
+            opacity: 0.7;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .back-link:hover {
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .artwork-info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-logo">MS</a>
+        <button class="mobile-menu-btn">☰</button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="writing.html">Writing</a></li>
+            <li><a href="artwork.html">Artwork</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="section-container">
+            <a href="artwork.html" class="back-link">← Back to Gallery</a>
+
+            <article class="artwork-full">
+                <div class="artwork-hero">
+                    <div class="artwork-image-wrapper" id="artworkImage">
+                        <!-- Replace the placeholder with your image -->
+                        <div class="artwork-image-placeholder">
+                            <span class="artwork-image-placeholder-icon">🎨</span>
+                            <span>Upload Artwork Image</span>
+                        </div>
+                        <!-- To use an actual image, replace the placeholder div above with:
+                        <img src="path/to/your-image.jpg" alt="Artwork Title">
+                        -->
+                    </div>
+                </div>
+
+                <div class="artwork-category">Oil on Canvas</div>
+                <h1 class="artwork-title">The Observer Effect</h1>
+
+                <div class="artwork-info-grid">
+                    <div class="artwork-description">
+                        <p>This piece began as a study of surveillance and self‑perception. The central figure — half‑illuminated, half‑shadowed — confronts the viewer with an expression that hovers between defiance and complicity.</p>
+                        <p>I used a limited palette of ultramarine, burnt sienna, and titanium white to create a world that feels simultaneously hyper‑real and dreamlike. The glitched‑out edges of the canvas represent the intrusion of digital noise into organic memory.</p>
+                        <p>Completed over three months in my studio, this work represents a turning point in my practice — the moment I stopped painting what I saw and started painting what I knew.</p>
+                    </div>
+
+                    <div class="artwork-meta">
+                        <div class="meta-row">
+                            <span class="meta-label">Title</span>
+                            <span class="meta-value">The Observer Effect</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="meta-label">Medium</span>
+                            <span class="meta-value">Oil on Canvas</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="meta-label">Dimensions</span>
+                            <span class="meta-value">90 × 120 cm</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="meta-label">Year</span>
+                            <span class="meta-value">2025</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="meta-label">Series</span>
+                            <span class="meta-value">Digital Solitude</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="meta-label">Status</span>
+                            <span class="meta-value">Available</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="artwork-nav">
+                    <a href="#">← Previous Piece</a>
+                    <a href="#">Next Piece →</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text">© 2026 Mughal Sahab — All rights reserved</p>
+            <div class="footer-links">
+                <a href="mailto:your@email.com">Email</a>
+                <a href="https://github.com/" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- Lightbox effect for the artwork image -->
+    <script>
+        const artworkImage = document.getElementById('artworkImage');
+        if (artworkImage) {
+            artworkImage.addEventListener('click', function() {
+                const img = this.querySelector('img');
+                if (img) {
+                    // Simple full‑screen overlay
+                    const overlay = document.createElement('div');
+                    overlay.style.cssText = `
+                        position: fixed;
+                        inset: 0;
+                        background: rgba(0,0,0,0.95);
+                        z-index: 2000;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: zoom-out;
+                    `;
+                    const fullImg = document.createElement('img');
+                    fullImg.src = img.src;
+                    fullImg.style.cssText = `
+                        max-width: 90vw;
+                        max-height: 90vh;
+                        border-radius: 8px;
+                    `;
+                    overlay.appendChild(fullImg);
+                    document.body.appendChild(overlay);
+
+                    overlay.addEventListener('click', () => {
+                        document.body.removeChild(overlay);
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html>

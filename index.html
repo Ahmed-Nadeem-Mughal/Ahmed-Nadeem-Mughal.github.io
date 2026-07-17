@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Ahmed Mughal — Portfolio</title>
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="styles.css">
+		<link rel="icon" type="ico" href="favicon.ico">
+		<style>
+			/* Hero Section */
+			.hero {
+				min-height: calc(100vh - 80px);
+				display: flex;
+				align-items: center;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			.hero-bg-grid {
+				position: absolute;
+				inset: 0;
+				background-image:
+				linear-gradient(rgba(200,169,110,0.03) 1px, transparent 1px),
+				linear-gradient(90deg, rgba(200,169,110,0.03) 1px, transparent 1px);
+				background-size: 60px 60px;
+				mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+			}
+			
+			.hero-glow {
+				position: absolute;
+				width: 600px;
+				height: 600px;
+				background: radial-gradient(circle, rgba(124,111,205,0.15) 0%, transparent 70%);
+				top: -100px;
+				right: -200px;
+				pointer-events: none;
+			}
+			
+			.hero-content {
+				position: relative;
+				z-index: 1;
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 4rem 3rem;
+			}
+			
+			.hero-tag {
+				font-family: 'Space Mono', monospace;
+				font-size: 0.7rem;
+				color: var(--accent);
+				letter-spacing: 0.25em;
+				text-transform: uppercase;
+				margin-bottom: 1.5rem;
+				opacity: 0;
+				animation: fadeUp 0.8s 0.2s forwards;
+			}
+			
+			.hero-title {
+				font-family: 'Playfair Display', serif<link rel="icon" type="image/png" href="favicon.png">;
+				font-size: clamp(3.5rem, 8vw, 7rem);
+				line-height: 1.05;
+				font-weight: 700;
+				opacity: 0;
+				animation: fadeUp 0.8s 0.4s forwards;
+			}
+			
+			.hero-title em {
+				font-style: italic;
+				color: var(--accent);
+			}
+			
+			.hero-description {
+				margin-top: 1.5rem;
+				font-size: 1.2rem;
+				color: var(--muted);
+				max-width: 520px;
+				font-style: italic;
+				opacity: 0;
+				animation: fadeUp 0.8s 0.6s forwards;
+			}
+			
+			.hero-skills {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.75rem;
+				margin-top: 2.5rem;
+				opacity: 0;
+				animation: fadeUp 0.8s 0.8s forwards;
+			}
+			
+			.skill-pill {
+				font-family: 'Space Mono', monospace;
+				font-size: 0.65rem;
+				letter-spacing: 0.1em;
+				padding: 0.4rem 1rem;
+				border: 1px solid var(--border);
+				border-radius: 999px;
+				color: var(--muted);
+				text-transform: uppercase;
+				transition: all var(--transition);
+			}
+			
+			.skill-pill:hover {
+				border-color: var(--accent);
+				color: var(--accent);
+				background: rgba(200,169,110,0.05);
+			}
+			
+			.hero-actions {
+				display: flex;
+				gap: 1.5rem;
+				margin-top: 3rem;
+				opacity: 0;
+				animation: fadeUp 0.8s 1s forwards;
+			}
+			
+			.featured-section {
+				padding: 6rem 3rem;
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+			
+			.featured-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 2rem;
+				margin-top: 3rem;
+			}
+			
+			.featured-card {
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-radius: 12px;
+				padding: 2.5rem 2rem;
+				transition: all var(--transition);
+				text-decoration: none;
+				color: var(--text);
+				display: block;
+			}
+			
+			.featured-card:hover {
+				transform: translateY(-4px);
+				border-color: var(--accent);
+			}
+			
+			.featured-icon {
+				font-size: 2.5rem;
+				margin-bottom: 1.5rem;
+			}
+			
+			.featured-card-title {
+				font-family: 'Playfair Display', serif;
+				font-size: 1.5rem;
+				margin-bottom: 1rem;
+			}
+			
+			.featured-card-desc {
+				color: var(--muted);
+				font-size: 0.95rem;
+				line-height: 1.7;
+			}
+			
+			@keyframes fadeUp {
+				from {
+					opacity: 0;
+					transform: translateY(24px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+			
+			@media (max-width: 768px) {
+				.featured-grid {
+					grid-template-columns: 1fr;
+				}
+				
+				.hero-actions {
+					flex-direction: column;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<nav>
+			<a href="index.html" class="nav-logo">AM</a>
+			<button class="mobile-menu-btn">☰</button>
+			<ul class="nav-links">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="skills.html">Skills</a></li>
+				<li><a href="projects.html">Projects</a></li>
+				<li><a href="writing.html">Writing</a></li>
+				<li><a href="artwork.html">Artwork</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</nav>
+
+		<main>
+			<section class="hero">
+				<div class="hero-bg-grid"></div>
+				<div class="hero-glow"></div>
+				<div class="hero-content">
+					<div class="hero-tag">Portfolio — 2026 <br><br><h3>Ahmed Nadeem</h3></div>
+					<h1 class="hero-title">My Magic<br><em>Is Never Giving Up</em></h1>
+					<p class="hero-description">Engineer by logic. Artist by soul.<br>I build systems, explore vunrabilities, and create things that leave a mark.</p>
+					<div class="hero-skills">
+						<span class="skill-pill">Cybersecurity</span>
+						<span class="skill-pill">Python</span>
+						<span class="skill-pill">Robotics</span>
+						<span class="skill-pill">OSINT</span>
+						<span class="skill-pill">Creative Writing</span>
+						<span class="skill-pill">Visual Art</span>
+						<span class="skill-pill">Linux</span>
+						<span class="skill-pill">AI Automation</span>
+					</div>
+					<div class="hero-actions">
+						<a href="projects.html" class="btn btn-primary">View Projects →</a>
+						<a href="contact.html" class="btn">Get In Touch</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="featured-section">
+				<div class="section-header">
+					<div class="section-tag">Explore</div>
+					<h2 class="section-title">What I Do</h2>
+					<p class="section-subtitle">A glimpse into the different hats I wear</p>
+				</div>
+				<div class="featured-grid fade-in">
+					<a href="skills.html" class="featured-card">
+						<div class="featured-icon">⚙️</div>
+						<h3 class="featured-card-title">Programming</h3>
+						<p class="featured-card-desc">From Python automation to network security — I build tools that solve real problems.</p>
+					</a>
+					<a href="writing.html" class="featured-card">
+						<div class="featured-icon">✍️</div>
+						<h3 class="featured-card-title">Literature</h3>
+						<p class="featured-card-desc">Short stories, essays, and poetry that explore my desires, dreams and beliefs in todays day and age.</p>
+					</a>
+					<a href="artwork.html" class="featured-card">
+						<div class="featured-icon">🎨</div>
+						<h3 class="featured-card-title">Artwork</h3>
+						<p class="featured-card-desc">Visual expressions, of the defination of beauty in my eyes.</p>
+					</a>
+				</div>
+			</section>
+		</main>
+
+		<footer>
+			<div class="footer-content">
+				<p class="footer-text">© 2026 Mughal Sahab — All rights reserved</p>
+				<div class="footer-links">
+					<a href="mailto:an358138@gmail.com">Email</a>
+					<a href="https://github.com/Ahmed-Nadeem-Mughal" target="_blank">GitHub</a>
+					<a href="https://www.instagram.com/the._.mughal/" target="_blank">Instagram</a>
+				</div>
+			</div>
+		</footer>
+
+		<script src="script.js"></script>
+	</body>
+</html>

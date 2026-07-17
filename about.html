@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>About — Mughal Sahab</title>
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="styles.css">
+		<link rel="icon" type="ico" href="favicon.ico">
+		<style>
+			.about-layout {
+				display: grid;
+				grid-template-columns: 3fr 2fr;
+				gap: 4rem;
+				align-items: start;
+			}
+			
+			.about-image {
+				position: sticky;
+				top: 100px;
+			}
+			
+			.image-placeholder {
+				aspect-ratio: 1/1;
+				background: linear-gradient(135deg, #1a1a2e, #16213e);
+				border: 5px solid var(--border);
+				border-radius: 15px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: var(--muted);
+				font-family: 'Space Mono', monospace;
+				font-size: 0.7rem;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+			}
+			
+			.bio-text {
+				color: var(--muted);
+				font-size: 1.05rem;
+				line-height: 2;
+			}
+			
+			.bio-text p {
+				margin-bottom: 1.5rem;
+			}
+			
+			.stats-grid {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 1rem;
+				margin-top: 3rem;
+			}
+			
+			.stat-card {
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-radius: 10px;
+				padding: 1.5rem;
+				text-align: center;
+			}
+			
+			.stat-number {
+				font-family: 'Playfair Display', serif;
+				font-size: 2rem;
+				color: var(--accent);
+				font-weight: 700;
+			}
+			
+			.stat-label {
+				font-family: 'Space Mono', monospace;
+				font-size: 0.6rem;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+				color: var(--muted);
+				margin-top: 0.5rem;
+			}
+			
+			.timeline {
+				margin-top: 3rem;
+				position: relative;
+				padding-left: 2rem;
+			}
+			
+			.timeline::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				width: 1px;
+				background: var(--border);
+			}
+			
+			.timeline-item {
+				position: relative;
+				padding-bottom: 2.5rem;
+			}
+			
+			.timeline-item::before {
+				content: '';
+				position: absolute;
+				left: -2rem;
+				top: 0.5rem;
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background: var(--accent);
+				border: 2px solid var(--bg);
+			}
+			
+			.timeline-year {
+				font-family: 'Space Mono', monospace;
+				font-size: 0.65rem;
+				color: var(--accent);
+				letter-spacing: 0.1em;
+				margin-bottom: 0.5rem;
+			}
+			
+			.timeline-title {
+				font-family: 'Playfair Display', serif;
+				font-size: 1.2rem;
+				margin-bottom: 0.5rem;
+			}
+			
+			.timeline-desc {
+				color: var(--muted);
+				font-size: 0.95rem;
+			}
+			
+			@media (max-width: 768px) {
+				.about-layout {
+					grid-template-columns: 1fr;
+				}
+				
+				.about-image {
+					position: static;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<nav>
+			<a href="index.html" class="nav-logo">AM</a>
+			<button class="mobile-menu-btn">☰</button>
+			<ul class="nav-links">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="skills.html">Skills</a></li>
+				<li><a href="projects.html">Projects</a></li>
+				<li><a href="writing.html">Writing</a></li>
+				<li><a href="artwork.html">Artwork</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</nav>
+
+		<main>
+			<div class="page-header">
+				<div class="section-tag">001 — About</div>
+				<h1 class="section-title">My Story</h1>
+				<p class="section-subtitle">Engineer by training, creator by passion</p>
+			</div>
+
+			<section class="section-container">
+				<div class="about-layout fade-in">
+					<div class="about-text">
+						<div class="bio-text">
+							<p>I'm Ahmed Nadeem — a multi-disciplinary creator working at the intersection of technology, literature, and visual art. My journey began with a curiosity about how things work, which led me to engineering and computer science.</p>
+
+							<p>But I quickly realized that technical knowledge alone wasn't enough. The most meaningful work happens when analytical thinking meets creative expression. Whether I'm writing a Python script to automate reconnaissance or composing a poem about digital solitude, I'm driven by the same impulse: to understand and articulate the patterns that shape our world.</p>
+
+							<p>Currently pursuing a degree in Mechatronics Engineering while independently exploring cybersecurity, ethical hacking, and OSINT. When I'm not at the terminal, you'll find me with a paintbrush in hand or a notebook full of story ideas.</p>
+
+							<p>I believe in depth over breadth, craftsmanship over speed, and the quiet power of work that speaks for itself.</p>
+						</div>
+
+						<div class="stats-grid">
+							<div class="stat-card">
+								<div class="stat-number">3+</div>
+								<div class="stat-label">Years Coding</div>
+							</div>
+							<div class="stat-card">
+								<div class="stat-number">2+</div>
+								<div class="stat-label">Projects Built</div>
+							</div>
+							<div class="stat-card">
+								<div class="stat-number">46+</div>
+								<div class="stat-label">Writing Pieces</div>
+							</div>
+							<div class="stat-card">
+								<div class="stat-number">35+</div>
+								<div class="stat-label">Artworks</div>
+							</div>
+						</div>
+
+						<div class="timeline">
+							<div class="timeline-item">
+								<div class="timeline-year">2026 — Present</div>
+								<div class="timeline-title">Engineering Student</div>
+								<div class="timeline-desc">Pursuing Robotics Engineering with focus on human machine interaction and embedded systems.</div>
+							</div>
+							<div class="timeline-item">
+								<div class="timeline-year">2025 — Present</div>
+								<div class="timeline-title">Writer & Artist</div>
+								<div class="timeline-desc">Started Writting poetry (Mainly Haikus), and started drawing/painting alongside technical pursuits.</div>
+							</div>
+							<div class="timeline-item">
+								<div class="timeline-year">2020 — Present</div>
+								<div class="timeline-title">Self-Taught Programmer</div>
+								<div class="timeline-desc">Mastered HTML and CSS. Then Learned Python, Automation. Switched to a Linux System. Currently learning C++ and looking into cybersecurity.</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="about-image">
+						<div class="image-placeholder">
+							<img src="../../Downloads/About-IMG.jpeg" alt="The Man Himeself." style="border-radius: 13px; max-width: 100%; height:auto;">
+						</div>
+						<div style="margin-top: 2rem; padding: 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px;">
+							<h3 style="font-family: 'Playfair Display', serif; margin-bottom: 1rem; font-size: 1.2rem;">Quick Facts</h3>
+							<div style="display: flex; flex-direction: column; gap: 1rem;">
+								<div style="display: flex; justify-content: space-between; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);">
+									<span style="color: var(--muted);">Based in</span>
+									<span>Kuwait</span>
+								</div>
+								<div style="display: flex; justify-content: space-between; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);">
+									<span style="color: var(--muted);">Languages</span>
+									<span>Python · Bash · C++ · HTML · Latex</span>
+								</div>
+								<div style="display: flex; justify-content: space-between; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);">
+									<span style="color: var(--muted);">OS</span>
+									<span>Linux (Arch, Mint) · Windows</span>
+								</div>
+								<div style="display: flex; justify-content: space-between; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);">
+									<span style="color: var(--muted);">Interests</span>
+									<span>Robotics · Art · Philosophy</span>
+								</div>
+								<div style="display: flex; justify-content: space-between;">
+									<span style="color: var(--muted);">Open To</span>
+									<span>Internships · Collabs</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer>
+			<div class="footer-content">
+				<p class="footer-text">© 2026 Ahmed Nadeem — All rights reserved</p>
+				<div class="footer-links">
+					<a href="mailto:your@email.com">Email</a>
+					<a href="https://github.com/" target="_blank">GitHub</a>
+					<a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+				</div>
+			</div>
+		</footer>
+
+		<script src="script.js"></script>
+	</body>
+</html>
