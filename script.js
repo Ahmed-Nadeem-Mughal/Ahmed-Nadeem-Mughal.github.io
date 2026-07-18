@@ -211,73 +211,8 @@ function initProjectFilters() {
     toggleEmptyState();
 }
 
-/*
-function initArtworkFilters() {
-    const filterContainer = document.querySelector('.gallery-filters');
-    const noArtCard = document.querySelector('.no-art-card');
-    
-    // Safely exit if this isn't the artwork gallery page
-    if (!filterContainer) return;
 
-    const buttons = filterContainer.querySelectorAll('.filter-btn');
-    const cards = document.querySelectorAll('.art-piece');
-    const featuredElements = document.querySelectorAll('.featured');
-    function toggleEmptyState() {
-        if (!noArtCard) return;
-        // Count cards that do NOT have the hidden class
-        const visibleCards = Array.from(cards).filter(card => !card.classList.contains('hidden'));
-        
-        if (visibleCards.length === 0) {
-            noArtCard.classList.remove('hidden');
-        } else {
-            noArtCard.classList.add('hidden');
-        }
-    }
-
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Update active button state style layout dynamically
-            buttons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-
-            const filter = button.getAttribute('data-filter');
-
-           cards.forEach(card => {
-    const category = card.getAttribute('data-category');
-    const isFeatured = card.classList.contains('featured');
-
-    if (filter === 'all') {
-    // Show standard gallery cards and restore featured pieces + heading
-    featuredElements.forEach(el => el.classList.remove('hidden'));
-    cards.forEach(card => card.classList.remove('hidden'));
-} else {
-    // Instantly drop all elements with the featured class tag
-    featuredElements.forEach(el => el.classList.add('hidden'));
-    
-    cards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        
-        if (card.classList.contains('featured')) {
-            card.classList.add('hidden');
-        } else if (category === filter) {
-            card.classList.remove('hidden');
-        } else {
-            card.classList.add('hidden');
-        }
-    });
-}
-}); 
-
-            // Check if we need to show the empty state after filtering
-            toggleEmptyState();
-        });
-    });
-
-    // Run initial empty check on page build
-    toggleEmptyState();
-}*/
-
-function initArtworkFilters() {
+/*function initArtworkFilters() {
     const filterContainer = document.querySelector('.gallery-filters');
     const noArtCard = document.querySelector('.no-art-card');
     
@@ -340,6 +275,76 @@ function initArtworkFilters() {
         });
     });
 
+    toggleEmptyState();
+}*/
+
+function initArtworkFilters() {
+    const filterContainer = document.querySelector('.gallery-filters');
+    const noArtCard = document.querySelector('.no-art-card');
+    
+    if (!filterContainer) return;
+
+    const buttons = filterContainer.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.art-piece');
+    const heading = document.querySelector('.gallery-section-heading'); // Grab the 'Featured' heading
+
+    function toggleEmptyState() {
+        if (!noArtCard) return;
+        const visibleCards = Array.from(cards).filter(card => !card.classList.contains('hidden'));
+        
+        if (visibleCards.length === 0) {
+            noArtCard.classList.remove('hidden');
+        } else {
+            noArtCard.classList.add('hidden');
+        }
+    }
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Update active state styling rules on navigation elements
+            buttons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const filter = button.getAttribute('data-filter');
+
+            if (filter === 'all') {
+                // Restore the 'Featured' text heading
+                if (heading) heading.classList.remove('hidden');
+
+                cards.forEach(card => {
+                    card.classList.remove('hidden');
+                    
+                    // Force the grid cell to span across full columns again on active toggle
+                    const titleElement = card.querySelector('.art-title');
+                    if (titleElement && titleElement.textContent.trim() === 'First Bloom') {
+                        card.classList.add('featured');
+                    }
+                });
+            } else {
+                // Hide the 'Featured' heading text for all specific category tabs
+                if (heading) heading.classList.add('hidden');
+                
+                cards.forEach(card => {
+                    // Pull data tags and split them by spaces to safely handle multiple categories
+                    const categoriesAttr = card.getAttribute('data-category') || '';
+                    const categories = categoriesAttr.split(' ');
+                    
+                    if (categories.includes(filter)) {
+                        card.classList.remove('hidden');
+                        // Strip the layout settings so it behaves like a standard grid card inside sub-menus
+                        card.classList.remove('featured');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            }
+
+            // Check if we need to display the empty folder fallback status
+            toggleEmptyState();
+        });
+    });
+
+    // Run initial execution layer state checks on DOM assembly
     toggleEmptyState();
 }
 
