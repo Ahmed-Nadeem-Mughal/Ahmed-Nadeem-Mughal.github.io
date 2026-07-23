@@ -233,18 +233,18 @@
 								</div>
 							</a>
 
-							<a href="https://linkedin.com/" target="_blank" class="contact-method">
+							<!--<a href="https://linkedin.com/" target="_blank" class="contact-method">
 								<div class="contact-method-icon">◈</div>
 								<div>
 									<div class="contact-method-label">LinkedIn</div>
 									<div class="contact-method-value">linkedin.com/in/yourprofile</div>
 								</div>
-							</a>
+							</a>-->
 						</div>
 
 						<div class="social-grid">
-							<a href="#" class="social-link">Twitter</a>
-							<a href="#" class="social-link">Discord</a>
+							<!--<a href="#" class="social-link">Twitter</a>
+							<a href="#" class="social-link">Discord</a>-->
 							<a href="https://www.instagram.com/the._.mughal?utm_source=qr&igsh=MW52Mzk0aHRobjBxZw%3D%3D" target="_blank" class="social-link">Instagram</a>
 							<a href="https://www.youtube.com/@the.unique.mughal" target="_blank" class="social-link">YouTube</a>
 						</div>
@@ -291,6 +291,57 @@
 			</div>
 		</footer>
 
-		<script src="script.js"></script>
+		<script src="script.js">function initContactForm() {
+				const contactForm = document.getElementById('contact-form');
+				const formStatus = document.getElementById('form-status');
+				
+				if (!contactForm) return;
+				
+				contactForm.addEventListener('submit', async (e) => {
+					e.preventDefault(); // Stop default form submit and 405 error
+					
+					const submitBtn = contactForm.querySelector('.form-submit');
+					submitBtn.disabled = true;
+					submitBtn.textContent = 'Sending...';
+					
+					// 1. Gather and format input values into an object
+					const payload = {
+						name: document.getElementById('name').value,
+						email: document.getElementById('email').value,
+						subject: document.getElementById('subject').value,
+						message: document.getElementById('message').value
+						};
+						
+						try {
+							// 2. Post the formatted data directly to your personal Google Script URL
+							const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyE4D02duv6MjB08i9qOxjiT4PIAuOpRpRvE7F9k-1LkLx_7F6SH079pZ_tRJUAAxjd/exec';
+							
+							const response = await fetch(GOOGLE_SCRIPT_URL, {
+								method: 'POST',
+								headers: {
+									'Content-Type': 'text/plain;charset=utf-8',
+									},
+									body: JSON.stringify(payload)
+									});
+									
+									const result = await response.json();
+									
+									if (result.status === 'success') {
+										formStatus.style.color = 'var(--accent, #4ade80)';
+										formStatus.textContent = 'Message formatted and delivered successfully!';
+										contactForm.reset();
+										} else {
+											throw new Error(result.message);
+										}
+										} catch (error) {
+											formStatus.style.color = '#f87171';
+											formStatus.textContent = 'Failed to send message. Please try again.';
+											console.error('Submission error:', error);
+											} finally {
+												submitBtn.disabled = false;
+												submitBtn.textContent = 'Send Message →';
+											}
+											});
+										}</script>
 	</body>
 </html>
