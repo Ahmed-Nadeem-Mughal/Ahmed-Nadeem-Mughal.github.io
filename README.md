@@ -2,7 +2,7 @@
 
 Welcome to my personal portfolio website! This project showcases my skills, experience, and the projects I've built as a developer. It is hosted completely for free using GitHub Pages.
 
-🌐 **Live Demo:** [https://TheMughal.github.io](https://ahmed-nadeem-mughal.github.io/)
+🌐 **Site:** [https://TheMughal.github.io](https://ahmed-nadeem-mughal.github.io/)
 
 ---
 
@@ -24,7 +24,6 @@ Welcome to my personal portfolio website! This project showcases my skills, expe
 Portfolio_Site/
 │
 ├── index.html        # Main landing page (entry point)
-├── css/              # Stylesheets (e.g., style.css)
-├── js/               # Interactive scripts (e.g., script.js)
-├── images/           # Site assets, project screenshots, and icons
+├── style.css              # Stylesheets (e.g., style.css)
+├── script.js               # Interactive scripts (e.g., script.js)
 └── README.md         # Documentation (this file)
