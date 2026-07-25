@@ -358,10 +358,10 @@ function initArtworkFilters() {
 					e.preventDefault(); // Stop default form submit and 405 error
         console.log("Form submission intercepted successfully!");
 	
-    const submitBtn = contactForm.querySelector('.form-submit');
-					submitBtn.disabled = true;
-					submitBtn.textContent = 'Sending...';
-					
+        const submitBtn = contactForm.querySelector('.form-submit');
+              submitBtn.disabled = true;
+              submitBtn.textContent = 'Sending...';
+              
 					// 1. Gather and format input values into an object
 					const payload = {
 						name: document.getElementById('name').value,
@@ -387,6 +387,9 @@ function initArtworkFilters() {
 									if (result.status === 'success') {
 										formStatus.style.color = 'var(--accent, #4ade80)';
 										formStatus.textContent = 'Message delivered successfully!';
+                    const submitBtn = contactForm.querySelector('.form-submit');
+                          submitBtn.disabled = true;
+                          submitBtn.textContent = 'Sent successfully!';
 										contactForm.reset();
 										} else {
 											throw new Error(result.message);
