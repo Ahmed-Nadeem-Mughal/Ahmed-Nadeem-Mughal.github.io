@@ -387,6 +387,8 @@ function initArtworkFilters() {
 									if (result.status === 'success') {
 										formStatus.style.color = 'var(--accent, #4ade80)';
 										formStatus.textContent = 'Message delivered successfully!';
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Message Sent!';
 										contactForm.reset();
 										} else {
 											throw new Error(result.message);
