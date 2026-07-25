@@ -356,8 +356,9 @@ function initArtworkFilters() {
 				
 				contactForm.addEventListener('submit', async (e) => {
 					e.preventDefault(); // Stop default form submit and 405 error
-					
-					const submitBtn = contactForm.querySelector('.form-submit');
+        console.log("Form submission intercepted successfully!");
+	
+    const submitBtn = contactForm.querySelector('.form-submit');
 					submitBtn.disabled = true;
 					submitBtn.textContent = 'Sending...';
 					
@@ -385,7 +386,7 @@ function initArtworkFilters() {
 									
 									if (result.status === 'success') {
 										formStatus.style.color = 'var(--accent, #4ade80)';
-										formStatus.textContent = 'Message formatted and delivered successfully!';
+										formStatus.textContent = 'Message delivered successfully!';
 										contactForm.reset();
 										} else {
 											throw new Error(result.message);
