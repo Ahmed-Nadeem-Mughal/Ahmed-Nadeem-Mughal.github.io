@@ -385,18 +385,18 @@ function initArtworkFilters() {
 									const result = await response.json();
 									
 									if (result.status === 'success') {
-										formStatus.style.color = 'var(--accent, #4ade80)';
+										/*formStatus.style.color = 'var(--accent, #4ade80)';
 										formStatus.textContent = 'Message delivered successfully!';
                     const submitBtn = contactForm.querySelector('.form-submit');
-                          submitBtn.disabled = true;
+                          submitBtn.disabled = true;*/
                           submitBtn.textContent = 'Sent successfully!';
 										contactForm.reset();
 										} else {
 											throw new Error(result.message);
 										}
 										} catch (error) {
-											formStatus.style.color = '#f87171';
-											formStatus.textContent = 'Failed to send message. Please try again.';
+											/*formStatus.style.color = '#f87171';
+											formStatus.textContent = 'Failed to send message. Please try again.';*/
 											console.error('Submission error:', error);
 											} finally {
 												submitBtn.disabled = false;
