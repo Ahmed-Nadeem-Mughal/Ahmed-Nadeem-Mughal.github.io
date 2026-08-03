@@ -8,16 +8,16 @@
 }
 
 :root {
-  --bg: #0a0a0f;         /* Void        */
-  --surface: #12121a;    /* Void lifted */
-  --border: #1e1e2a;     /* Void edge   */
-  --accent: #c4933f;     /* Gilt        */
-  --accent2: #2b3a52;    /* Monsoon     */
-  --text: #e5ddd0;       /* Parchment   */
-  --muted: #5a5a6a;      /* Ash         */
-  --code: #4a7ea5;       /* Monsoon tint */
-  --lit: #b85a3e;        /* Ember light  */
-  --art: #9e8b55;        /* Gilt muted   */
+  --bg: #0a0a0f;
+  --surface: #111118;
+  --border: #1e1e2e;
+  --accent: #c8a96e;
+  --accent2: #7c6fcd;
+  --text: #e8e4d9;
+  --muted: #6b6880;
+  --code: #4ecdc4;
+  --lit: #e8a598;
+  --art: #98c8a0;
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
